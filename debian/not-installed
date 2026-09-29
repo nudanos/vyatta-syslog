@@ -1,1 +1,2 @@
 usr/share/gocode/*
+etc/cron.hourly/vyatta-logrotate-hourly
