@@ -48,6 +48,6 @@ override_dh_auto_test:
 override_dh_install:
 	dh_install --package golang-syslog
 	dh_install --no-package golang-syslog && \
-	mkdir -p debian/vyatta-system-syslog-v1-yang/lib/systemd/system/rsyslog.service.d && \
+	mkdir -p debian/vyatta-system-syslog-v1-yang/usr/lib/systemd/system/rsyslog.service.d && \
 	install --mode=644 debian/vyatta-syslog-snmptrap.conf \
-		debian/vyatta-system-syslog-v1-yang/lib/systemd/system/rsyslog.service.d
+		debian/vyatta-system-syslog-v1-yang/usr/lib/systemd/system/rsyslog.service.d
