@@ -1,2 +1,2 @@
-debian/rsyslog@.service /lib/systemd/system/
+debian/rsyslog@.service /usr/lib/systemd/system/
 usr/share/configd/yang/vyatta-system-syslog-routing-instance-v1.yang
