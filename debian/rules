@@ -1,4 +1,5 @@
 #!/usr/bin/make -f
+export GO111MODULE := off
 
 # Uncomment this to turn on verbose mode.
 #export DH_VERBOSE=1
@@ -17,12 +18,12 @@ GOCOVER=$(if $(shell go doc cmd/cover >/dev/null 2>&1 && echo true),-cover,)
 
 %:
 	# Build Go packages
-	dh $@ --buildsystem=golang --with=golang \
+	dh $@ --buildsystem=golang --with golang \
 	      --builddirectory=$(GOBUILDDIR) \
 		  --package golang-syslog
 
 	# Build all other packages
-	dh $@ --with autoreconf --with systemd --with=yang --with=config-package \
+	dh $@ --with autoreconf --with yang --with config-package \
 	      --no-package golang-syslog
 
 override_dh_auto_build: vet

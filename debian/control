@@ -1,12 +1,10 @@
 Source: vyatta-syslog
-Section: contrib/net
+Section: net
 Priority: optional
-Maintainer: Vyatta Package Maintainers <DL-vyatta-help@att.com>
-Build-Depends:
+Maintainer: NuDanOS Maintainers <jon@fernandez.tech>
+Build-Depends: debhelper-compat (= 13),
  config-package-dev,
  cpio,
- debhelper (>= 9.20160403~) | dh-autoreconf,
- debhelper (>= 9.20160709),
  dh-golang,
  dh-yang,
  golang-any,
@@ -26,12 +24,15 @@ Build-Depends:
  libtext-diff-perl,
  libtie-ixhash-perl,
  logrotate,
- shunit2,
-Standards-Version: 3.9.6
+ shunit2
+Standards-Version: 4.7.2
+Rules-Requires-Root: no
+Vcs-Git: https://github.com/nudanos/vyatta-syslog.git
+Vcs-Browser: https://github.com/nudanos/vyatta-syslog
 
 Package: vyatta-system-syslog-v1-yang
 Architecture: all
-Depends:
+Depends: 
  golang-syslog,
  rsyslog-openssl (>= 8.1908.0),
  vyatta-cfg (>= 1.16),
@@ -46,7 +47,7 @@ Description: vyatta-system-syslog-v1 module
 
 Package: vyatta-system-syslog-routing-instance-v1-yang
 Architecture: all
-Depends:
+Depends: 
  libvyatta-vrfmanager-perl,
  rsyslog-czmq,
  vyatta-syslog,
@@ -57,7 +58,7 @@ Description: vyatta-system-syslog-routing-instance-v1 module
 
 Package: vyatta-op-generate-syslog-v1-yang
 Architecture: all
-Depends:
+Depends: 
  vyatta-cfg (>= 1.16),
  vyatta-syslog,
  ${misc:Depends},
@@ -69,7 +70,7 @@ Description: vyatta-op-generate-syslog-v1 module
 
 Package: vyatta-system-syslog-enhanced-v1-yang
 Architecture: all
-Depends:
+Depends: 
  vyatta-syslog,
  ${misc:Depends},
  ${yang:Depends}
@@ -79,7 +80,7 @@ Description: vyatta-system-syslog-enhanced-v1 module
 
 Package: vyatta-system-syslog-enhanced-routing-instance-v1-yang
 Architecture: all
-Depends:
+Depends: 
  vyatta-syslog,
  ${misc:Depends},
  ${yang:Depends}
@@ -88,7 +89,7 @@ Description: vyatta-system-syslog-enhanced-routing-instance-v1 module
 
 Package: vyatta-op-show-syslog-v1-yang
 Architecture: all
-Depends:
+Depends: 
  vyatta-syslog,
  ${misc:Depends},
  ${yang:Depends}
@@ -99,7 +100,7 @@ Description: vyatta-op-show-syslog-v1 module
 
 Package: vyatta-op-delete-syslog-file-v1-yang
 Architecture: all
-Depends:
+Depends: 
  vyatta-syslog,
  ${misc:Depends},
  ${yang:Depends}
@@ -110,7 +111,7 @@ Description: vyatta-op-delete-syslog-file-v1 module
 
 Package: vyatta-op-syslog-event-scripts-v1-yang
 Architecture: all
-Depends:
+Depends: 
  vyatta-syslog,
  ${misc:Depends},
  ${yang:Depends}
@@ -121,7 +122,7 @@ Description: vyatta-op-syslog-event-scripts-v1 module
 
 Package: vyatta-syslog
 Architecture: any
-Depends:
+Depends: 
  cron,
  libarray-utils-perl,
  libfile-slurp-perl,
@@ -149,7 +150,7 @@ Description: Vyatta syslog integration
 
 Package: golang-syslog
 Architecture: any
-Depends:
+Depends: 
  ${misc:Depends}
 Description: The golang-syslog package provides the syslog_events utility for
  the related YANG package build in this repo.
